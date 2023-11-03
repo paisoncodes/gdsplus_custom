@@ -214,3 +214,10 @@ app_license = "mit"
 # auth_hooks = [
 #	"gdsplus_custom.auth.validate"
 # ]
+whitelisted_methods = {
+    "gdsplus_custom.modules.custom_encryption_module.encrypt_data",
+    "gdsplus_custom.modules.custom_encryption_module.decrypt_data",
+    "gdsplus_custom.modules.custom_encryption_module.generate_keys",
+    "gdsplus_custom.modules.custom_encryption_module.sign_data",
+    "gdsplus_custom.modules.custom_encryption_module.verify_signature",
+}
