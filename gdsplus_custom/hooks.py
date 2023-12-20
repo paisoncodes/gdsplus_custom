@@ -220,4 +220,5 @@ whitelisted_methods = {
     "gdsplus_custom.modules.custom_encryption_module.generate_keys",
     "gdsplus_custom.modules.custom_encryption_module.sign_data",
     "gdsplus_custom.modules.custom_encryption_module.verify_signature",
+    "gdsplus_custom.modules.custom_encryption_module.make_custom_request",
 }
