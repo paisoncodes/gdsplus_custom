@@ -221,4 +221,9 @@ whitelisted_methods = {
     "gdsplus_custom.modules.custom_encryption_module.sign_data",
     "gdsplus_custom.modules.custom_encryption_module.verify_signature",
     "gdsplus_custom.modules.custom_encryption_module.make_custom_request",
+    "gdsplus_custom.modules.custom_encryption_module.analytic_response",
+    "gdsplus_custom.modules.custom_encryption_module.build_request_body",
+    "gdsplus_custom.modules.custom_encryption_module.get_start_and_end_timestamps",
+    "gdsplus_custom.modules.opay_encrypt_decrypt.analytic_response",
+    "gdsplus_custom.modules.opay_encrypt_decrypt.build_request_body",
 }
