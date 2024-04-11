@@ -226,6 +226,7 @@ whitelisted_methods = {
     "gdsplus_custom.modules.custom_encryption_module.get_start_and_end_timestamps",
     "gdsplus_custom.modules.opay_encrypt_decrypt.analytic_response",
     "gdsplus_custom.modules.opay_encrypt_decrypt.build_request_body",
+    "gdsplus_custom.modules.opay_encrypt_decrypt.decrypt_by_private_key",
 }
 doc_events = {
     'Employee Advance': {
