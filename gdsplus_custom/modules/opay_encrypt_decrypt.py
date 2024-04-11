@@ -6,7 +6,7 @@ requirements: pycryptodome>=3.15.0
 
 __author__ = 'hao.zheng'
 
-import frappe
+# import frappe
 
 import base64
 import json
@@ -143,7 +143,7 @@ def signature_content(response_content):
         content.append(f"{key}={value}")
     return "&".join(content)
 
-@frappe.whitelist()
+# @frappe.whitelist()
 def build_request_body(request_content, timestamp, opay_public_key, merc_private_key):
     """
     Build request body
@@ -158,7 +158,7 @@ def build_request_body(request_content, timestamp, opay_public_key, merc_private
 
     return {"paramContent": enc_data, "sign": sign}
 
-@frappe.whitelist()
+# @frappe.whitelist()
 def analytic_response(response_content, opay_public_key, merc_private_key):
     """
     Analytic response
@@ -183,4 +183,10 @@ def analytic_response(response_content, opay_public_key, merc_private_key):
 
 
 
+data = {
+  "data": "Tt3DFVHEkw9EiP4JIGQnOApliLDGkzywkM+CKz+Blg0mmoLlAG1XOruUf3XHcPGYR5fXQhPOldEf0w5/j7J+l0Paro2SDRJKLdeH6SY9JaJrmmgghjhQ+jgKbG03gRHNoXtg4FiW4c5N7M1KCM4nxNdaHihvUWbkqa2zO8s4pYFw3Qk+2D9SF1O5DiNB8AHmlp1q+7lB/PzQi/cwT+yUzkFMQi5V8JDhkYHPwprkbR0VHIdi8SM6swekyzycYpXiKdZpSjQg0XzuwLNX9QqU83ypz0JQ+qDxKPvlo9NjmYC8C2sHWwFnjyCJ/r/JKU6Jg4kOEbDDFldceBwZotpixlMuV024bOl0hgD6qq32GdyTumb8WgLuyvf+85hXKSsVx6AYWgYmxxF/PAgpaHztoRvyKBm2eBmBdhWovXKYa/PZS0ig+oqemmXjA0YH2seVuezlkdA8z8G88Ch5VqeonN8z8C+BycM1IUK6MbQIi7iHAncWA5D77V8Am+ws3xOKQcM9nWKalos9A9TSmq+VdYwj7fRObmZ7+w/7EDC4VtRNgM/CrCgDVAbfQAjJgB8iv81DqHTpIv49qKBJ+91eABOp7vLyKd44y1mUCQ71F5k1JeapY11cIRseAKe1HvJttcDV5Jay546bvEUy7bWrh+MlD4IL/nQODxh98p85QD0FTLVavTT3fyj1NFsxZU+xn21ZQ65YHUhYB/bcPG2+jJuSMInwu3JTuGba7scjcRWi6mDhZBiL0CttyCgMeEp1T6WVxtveeWcPhdKb4i1uJGAn6unItRBW6/WcK6jblqx/jZFutjzMzVjGwrC/TDulPiUzXBchHXIg/4Z0n+ZdOwgUfRXQImUzrZy7rckTqQK5f3FgPLTQWIRLEHpnEeTbybKibTVSJCUVL/GBddkNV5n8Gd7aF8K4jhHbLmtrcUM06yg/7IfoyaNCSsRHH1506fTaDwDSm6B/vW7SP5sddcinPZFlYmD/32KRX5rrhmcasRQyj8vYAKZ/rhH6P/vXokBsOtcmAjtB44sl5g9UZkCJmRDxdSTKwpRRv5IWjzHGsZhFHG1SRRoXuoUeWEHVkSIX1461mArNH6Oy1sCR677bcIdq6wit4PZnTzJzaXu43X826GviAy4rWfKrDKJ9+q0uRFX8Prgl9biZMwwewMs4VixodbcZv8miEIqJQvE=",
+  "cmd": "opay-notify"
+}
+MERC_PRIVATE_KEY = """MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAKsMM030G3ZgHRjYBInUXbp8VAe3TV7I2Xu4szoCmVLby6OfIUvLAM21EskqsXywLuKZxezpoLjIHbVpfdiyQngypzBn4+8WtHOwCnvWFRBT9boTA6vz+Fxt+NfgzgkVwM/1cwSVNPuqb5ABzD1ddgQTTumcx/eQ/BaIbQ2lnopfAgMBAAECgYAs3L1UE9NkH99h1b6S++09bUCI6Y3Ub2+DYLU5YNcgAWAO4TzVaUAjs/tiYd09a+RQMK7V7YznCi2omCuWu2JtQGxJh7uEUWJaFqkylFPy9JJF1zR2T3YuBdAuXRQ9w9ayRcGv+z2xmzSav8qrIsTZJvgNplTY92zBU2UfjUpyOQJBANQuMOi6tAWbtaMS8ZNOU+9O+f/jNiXLgrDTln9CQWKpQ2vikOSUFWVhSBOda2K08PvPbVJEt+Q3fB9Qnw3DSv0CQQDOX1pBgJgAik+tNsnCAF5ZdpCDcng4HlKJvvN4ePy0FT0mTSc6pii5k9CCrV6FQvmCBryb+Kmi4g0DCnyG8A+LAkAqw9iVv7OzAaw9Xv8TupDORfO7cHckbP09WJgXtCnrkcQGBZdAitw5H79gPLU9Is0DY85b63/I3qoEwcIdCwSdAkEArB8TI/ag0DKLaah8dfXguzUMKtXaNtPzezdr0Vr3SSs9qShIQ7450S3bhmIap4LInw4HWP74XQW0XIjue4zVKQJBAId0bhsGjoqzyQ8D+WUXPs/Y+/XvpHCRl4oj6eZkvqwGRPCLzj0KPeUMoOmfxNlS2Xm7/BHrXVxtOeZk7KY5ZOI="""
 
+# print(decrypt_by_private_key(data['data'], MERC_PRIVATE_KEY))

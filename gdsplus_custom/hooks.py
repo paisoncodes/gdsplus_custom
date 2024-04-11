@@ -227,3 +227,9 @@ whitelisted_methods = {
     "gdsplus_custom.modules.opay_encrypt_decrypt.analytic_response",
     "gdsplus_custom.modules.opay_encrypt_decrypt.build_request_body",
 }
+doc_events = {
+    'Employee Advance': {
+        'before_load': 'gdsplus_custom.modules.hide_share_button.hide_share_button_on_employee_advance',
+        'refresh': 'gdsplus_custom.modules.hide_share_button.hide_share_button_on_employee_advance',
+    }
+}
